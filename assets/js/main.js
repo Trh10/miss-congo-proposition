@@ -307,16 +307,89 @@
     });
   }
 
+  document.querySelectorAll("[data-video-field]").forEach(function (field) {
+    var mode = "upload";
+    var previewUrl = null;
+    var btns = field.querySelectorAll("[data-video-mode]");
+    var panels = field.querySelectorAll("[data-video-panel]");
+    var fileInput = field.querySelector("#video-file");
+    var urlInput = field.querySelector("#video");
+    var drop = field.querySelector(".upload-drop");
+    var preview = field.querySelector("[data-video-preview]");
+    var player = field.querySelector("[data-video-player]");
+    var clearBtn = field.querySelector("[data-video-clear]");
+
+    function setMode(next) {
+      mode = next;
+      btns.forEach(function (btn) {
+        var active = btn.dataset.videoMode === next;
+        btn.classList.toggle("is-active", active);
+        btn.setAttribute("aria-selected", active ? "true" : "false");
+      });
+      panels.forEach(function (panel) {
+        panel.hidden = panel.dataset.videoPanel !== next;
+      });
+      if (urlInput) urlInput.required = false;
+      if (fileInput) fileInput.required = false;
+    }
+
+    function clearPreview() {
+      if (previewUrl) {
+        URL.revokeObjectURL(previewUrl);
+        previewUrl = null;
+      }
+      if (player) {
+        player.removeAttribute("src");
+        player.load();
+      }
+      if (fileInput) fileInput.value = "";
+      if (preview) preview.hidden = true;
+      if (drop) drop.hidden = false;
+    }
+
+    btns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setMode(btn.dataset.videoMode);
+      });
+    });
+
+    if (fileInput) {
+      fileInput.addEventListener("change", function () {
+        var file = fileInput.files && fileInput.files[0];
+        if (!file) return;
+        if (file.size > 100 * 1024 * 1024) {
+          alert("La vidéo dépasse 100 Mo. Choisissez un fichier plus léger ou partagez un lien en ligne.");
+          fileInput.value = "";
+          return;
+        }
+        if (previewUrl) URL.revokeObjectURL(previewUrl);
+        previewUrl = URL.createObjectURL(file);
+        if (player) player.src = previewUrl;
+        if (preview) preview.hidden = false;
+        if (drop) drop.hidden = true;
+      });
+    }
+
+    if (clearBtn) clearBtn.addEventListener("click", clearPreview);
+
+    field.closest("form").addEventListener("reset", clearPreview);
+    setMode("upload");
+  });
+
   document.querySelectorAll("form[data-demo]").forEach(function (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var zone = form.querySelector("[data-msg]");
       if (!zone) return;
+
+      var hasUpload = form.querySelector("#video-file") && form.querySelector("#video-file").files.length;
       zone.hidden = false;
       zone.textContent =
         form.dataset.demo === "partenaire"
           ? "Demande enregistrée. Le secrétariat du CO-MISS RDC revient vers vous sous 72 heures ouvrées."
-          : "Dossier enregistré. Vous recevrez un accusé de réception par e-mail avec le règlement du concours.";
+          : hasUpload
+            ? "Dossier enregistré avec votre vidéo. Vous recevrez un accusé de réception par e-mail avec le règlement du concours."
+            : "Dossier enregistré. Vous recevrez un accusé de réception par e-mail avec le règlement du concours.";
       zone.scrollIntoView({ behavior: "smooth", block: "center" });
       form.reset();
     });

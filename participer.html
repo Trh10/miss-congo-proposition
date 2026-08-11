@@ -5,24 +5,24 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Participer — Candidatures MISS RDC 2026</title>
 <meta name="description" content="Critères d'éligibilité, étapes de sélection et formulaire d'inscription au concours MISS RDC 2026. Inscriptions du 10 au 20 septembre 2026.">
-<meta name="theme-color" content="#9E1840">
+<meta name="theme-color" content="#171F41">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MISS RDC 2026">
 <meta property="og:title" content="Participer — Candidatures MISS RDC 2026">
 <meta property="og:description" content="Critères d'éligibilité, étapes de sélection et formulaire d'inscription au concours MISS RDC 2026. Inscriptions du 10 au 20 septembre 2026.">
 <meta property="og:locale" content="fr_CD">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 40'%3E%3Crect width='44' height='40' fill='%2308261C'/%3E%3Cpath d='M4 34 L10 10 L17 21 L22 4 L27 21 L34 10 L40 34 Z' fill='none' stroke='%23C4A57A' stroke-width='2.6' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="assets/img/favicon.png">
 <meta name="author" content="Comité national du concours MISS RDC">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@300;400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
 <header class="nav">
   <a class="brand" href="index.html">
-    <img class="brand-logo" src="assets/img/logo-miss-rdc.png" alt="Miss RDC" width="120" height="120">
+    <img class="brand-logo brand-logo-wide" src="assets/img/logo-miss-rdc.png" alt="Miss RDC" width="280" height="58">
 </a>
   <nav aria-label="Navigation principale">
     <ul class="menu">
@@ -124,10 +124,29 @@
       </div>
       <div><label for="tel">Téléphone (WhatsApp)</label><input id="tel" name="tel" type="tel" placeholder="+243 ..." required></div>
       <div class="f-full"><label for="email">Adresse e-mail</label><input id="email" name="email" type="email" required autocomplete="email"></div>
-      <div class="f-full">
-        <label for="video">Lien de votre vidéo de présentation</label>
-        <input id="video" name="video" type="url" placeholder="https://...">
-        <p class="help">Une minute max, verticale, visage dégagé. YouTube, Drive ou WeTransfer.</p>
+      <div class="f-full video-field" data-video-field>
+        <span class="field-label">Vidéo de présentation</span>
+        <div class="video-source" role="tablist" aria-label="Mode d'envoi de la vidéo">
+          <button type="button" class="video-source-btn is-active" data-video-mode="upload" role="tab" aria-selected="true">Depuis mon téléphone</button>
+          <button type="button" class="video-source-btn" data-video-mode="link" role="tab" aria-selected="false">Lien en ligne</button>
+        </div>
+        <div class="video-panel" data-video-panel="upload">
+          <label class="upload-drop" for="video-file">
+            <input id="video-file" name="video-file" type="file" accept="video/*" hidden>
+            <span class="upload-icon" aria-hidden="true">▶</span>
+            <span class="upload-title">Choisir ou filmer une vidéo</span>
+            <span class="upload-hint">Galerie ou caméra · MP4, MOV · 100 Mo max</span>
+          </label>
+          <div class="video-preview" data-video-preview hidden>
+            <video controls playsinline preload="metadata" data-video-player aria-label="Aperçu de votre vidéo"></video>
+            <button type="button" class="upload-clear" data-video-clear>Changer de vidéo</button>
+          </div>
+        </div>
+        <div class="video-panel" data-video-panel="link" hidden>
+          <label for="video">Lien de votre vidéo</label>
+          <input id="video" name="video" type="url" placeholder="https://...">
+        </div>
+        <p class="help">Une minute max, format vertical, visage dégagé. Vous pouvez envoyer directement depuis votre téléphone ou partager un lien YouTube, Drive ou WeTransfer.</p>
       </div>
       <div class="f-full">
         <label for="motivation">Pourquoi voulez-vous porter les couleurs de votre province ?</label>
@@ -169,7 +188,7 @@
     <div class="foot-grid">
       <div>
         <div class="brand" style="margin-bottom:1rem">
-          <img class="brand-logo lg" src="assets/img/logo-miss-rdc.png" alt="Miss RDC" width="160" height="160">
+          <img class="brand-logo brand-logo-wide lg" src="assets/img/logo-miss-rdc.png" alt="Miss RDC" width="320" height="84">
         </div>
         <p style="font-size:.9rem;max-width:32ch;margin:0">Programme national du Ministère du Tourisme. Coordination : CO-MISS RDC.</p>
         <div class="socials"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a></div>

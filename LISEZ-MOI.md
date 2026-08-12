@@ -37,7 +37,7 @@ partenaires.html   Principes, placements produit, grille PLATINE → OKAPI, form
 - Responsive jusqu'à 360 px, menu mobile plein écran.
 - Focus clavier visible, `prefers-reduced-motion` respecté (animations coupées).
 - Balises `title`, `description`, Open Graph et favicon sur chaque page.
-- Compte à rebours en direct vers le 24 décembre 2026, 20 h, heure de Kinshasa.
+- Compte à rebours en direct vers le 5 décembre 2026, 20 h, heure de Kinshasa.
 
 ---
 
@@ -71,3 +71,69 @@ La main est calée assez bas pour que l'avant-bras sorte par le bas du cadre : c
 - **Menu mobile.** Il était `position: fixed; inset: 0` mais ne mesurait que 120 px de haut, donc le `translateY(-102%)` ne le sortait pas de l'écran : les liens restaient affichés par-dessus le hero et le site était inutilisable sous 880 px. Corrigé avec `height: 100dvh`, `translateY(-100vh)` et `visibility` pour qu'il ne capte plus les clics une fois fermé.
 - **Pastilles du hero.** Leurs styles avaient disparu ; elles réapparaissaient en rectangles blancs en haut à gauche. Rétablies en bas à gauche, au-dessus des photos.
 - **Compte à rebours mobile.** « Secondes » passait à la ligne sous 520 px. Passé en grille de quatre colonnes.
+
+---
+
+# Passe éditoriale — août 2026
+
+Objectif : sortir du registre « rapport institutionnel ». Le site comptait 8 photos, dont 2 pages entièrement dépourvues d'images. Il en compte aujourd'hui 23, réparties sur les cinq pages.
+
+## Images ajoutées
+
+`hero-podium` · `gala-scene-large` · `gala-finalistes` · `gala-public` · `echarpe-detail` · `bijoux-detail` · `fleurs-bouquet` · `texture-velours` · `texture-pagne` · `kinshasa-fleuve` · `kinshasa-ville` · `lubumbashi` · `matadi-fleuve` · `moanda-plage` · `mangroves-moanda` · `terroir-marche` · `immersion-btp`
+
+Toutes converties en JPEG progressif, sRGB, qualité 82 (67–72 pour les deux plus lourdes). Aucune ne dépasse 400 Ko. Total du dossier images : 6,4 Mo hors archive.
+
+## Images retirées
+
+Déplacées dans `assets/img/_archive/` — non supprimées, au cas où :
+
+- `chantiers-modernite.jpg` — gilets jaunes et casques de chantier. Remplacée par `immersion-btp.jpg`.
+- `galerie-finale.jpg` — texte déformé sur les écharpes et le décor. Remplacée par `gala-finalistes.jpg`.
+- `andrea-moloto.jpg` — n'est plus l'image d'accueil ; l'archive 2016 reste présente via `andrea-moloto-portrait.jpg` dans la frise historique.
+- `hero-miss.jpg` — n'était référencée nulle part.
+- `main-tirage.png` — vestige du carrousel gestuel abandonné.
+
+## Nouveaux blocs CSS
+
+Tous regroupés en fin de `assets/css/main.css`, sous l'en-tête « PASSE ÉDITORIALE ».
+
+| Classe | Usage |
+| --- | --- |
+| `.bandeau` | image pleine largeur, 78 vh, titre en surimpression |
+| `.destinations` / `.dest` | mosaïque du volet tourisme (1 grande + 3 vignettes) |
+| `.sec-photo--texture` | photo en fond de section claire, voilée à 50 % |
+| `.sec-photo--dark` | photo en fond de section sombre, dégradé nuit → bordeaux |
+| `.voyage-photo` | carte de tournée illustrée, corps de texte remontant sur l'image |
+| `.cta-velours` | fond velours sous l'appel à l'action |
+| `.phead--photo` | en-tête de page sur photo |
+| `.figure-wide` / `.figure-tall` | vignette avec légende en surimpression |
+| `.respiration` | bande d'image pleine largeur, sans texte |
+
+## Correctif technique
+
+Les attributs HTML `width` et `height` d'une `<img>` sont traduits en `height` CSS par le navigateur. Cette valeur écrase le calcul de `aspect-ratio` et l'image s'affiche à sa hauteur naturelle. Toute règle qui impose un `aspect-ratio` à une image doit donc préciser `height: auto`. Corrigé sur `.figure-wide img`, `.voyage-photo > img` et `.lignee-visual img`.
+
+## Ce qui manque encore
+
+Neuf visuels du brief n'ont pas été produits. Le site tient sans eux, mais ce sont les prochains gains :
+
+| Manquant | Ce qui le remplace aujourd'hui |
+| --- | --- |
+| `portrait-couronne-01/02` | `galerie-couronne.jpg` |
+| `portrait-pagne-01/02` | `texture-pagne.jpg` en fond |
+| `couronne-macro` | `bijoux-detail.jpg` |
+| `gala-couronnement` | `galerie-trone.jpg` |
+| `paysage-kivu` | rien — le Kivu n'est illustré nulle part |
+| `atelier-formation` / `atelier-lecture` | rien — l'Atelier Miss RDC reste en texte seul |
+| `coulisses-maquillage` / `coulisses-essayage` | rien |
+| `immersion-mine` | `lubumbashi.jpg`, qui est une vue de ville, pas un site minier |
+| `repetition-scene` | rien |
+
+## Points de contenu non traités
+
+Ils relèvent de l'éditorial, pas de l'image :
+
+1. `edition.html` affiche toujours les montants d'investissement, le Conseil de Surveillance, le Comité d'Organisation et la composition chiffrée du jury. Ce contenu appartient à un dossier partenaires, pas à la page 2 du site public.
+2. Le chronogramme de `programme.html` reste une grille de dix-huit cases. Lisible, mais austère.
+3. La grille des trente provinces affiche « À POURVOIR » sur vingt-huit cases. Une carte de la RDC serait plus juste.

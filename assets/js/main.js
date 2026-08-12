@@ -56,7 +56,7 @@
 
   var cd = document.querySelector("[data-countdown]");
   if (cd) {
-    var cible = new Date("2026-12-24T20:00:00+01:00").getTime();
+    var cible = new Date("2026-12-05T20:00:00+01:00").getTime();
     var champs = {
       j: cd.querySelector('[data-u="j"]'),
       h: cd.querySelector('[data-u="h"]'),
@@ -386,7 +386,7 @@
       zone.hidden = false;
       zone.textContent =
         form.dataset.demo === "partenaire"
-          ? "Demande enregistrée. Le secrétariat du CO-MISS RDC revient vers vous sous 72 heures ouvrées."
+          ? "Demande enregistrée. La Coordination Nationale Miss RDC revient vers vous sous 72 heures ouvrées."
           : hasUpload
             ? "Dossier enregistré avec votre vidéo. Vous recevrez un accusé de réception par e-mail avec le règlement du concours."
             : "Dossier enregistré. Vous recevrez un accusé de réception par e-mail avec le règlement du concours.";

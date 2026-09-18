@@ -15,23 +15,26 @@
 <meta name="author" content="Coordination Nationale Miss RDC">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@300;400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body>
+<body class="competition-page">
 
 <header class="nav">
   <div class="nav-rail">
-    <a class="brand brand-empty" href="index.html" aria-label="Miss RDC Accueil"></a>
+    <a class="brand" href="index.html" aria-label="Miss RDC Accueil">
+      <img class="brand-logo brand-logo-wide" src="assets/img/logo-miss-rdc.png" alt="Miss RDC" width="280" height="58">
+    </a>
     <nav aria-label="Navigation principale">
       <ul class="menu">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="edition.html">L'édition</a></li>
-      <li><a href="programme.html">Programme</a></li>
-      <li><a href="participer.html" aria-current="page">Participer</a></li>
-      <li><a href="partenaires.html">Partenaires</a></li>
-      <li><a class="nav-cta" href="#formulaire">S'inscrire</a></li>
-    </ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="participer.html" aria-current="page">Compétition</a></li>
+        <li><a href="souvenir.html">Souvenir</a></li>
+        <li><a href="edition.html">Renaissance</a></li>
+        <li><a href="heritage.html">Héritage</a></li>
+        <li><a href="programme.html">Programme</a></li>
+        <li><a href="partenaires.html">Partenaires</a></li>
+      </ul>
     </nav>
     <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
@@ -39,18 +42,23 @@
 
 <section class="phead phead--photo">
   <div class="phead-bg" aria-hidden="true">
-    <img src="assets/img/echarpe-detail.jpg" alt="" width="1448" height="1086" fetchpriority="high">
+    <img src="assets/img/gala-finalistes.jpg" alt="" width="1586" height="992" fetchpriority="high">
   </div>
   <div class="wrap">
     <p class="eyebrow">Candidatures · 10 → 20 septembre 2026</p>
-    <h1 class="t-display" >Représenter<br>votre province</h1>
+    <h1 class="t-display">Représenter<br><em>votre province</em></h1>
     <p class="lead">Trente places, vingt-six provinces, une couronne. Inscription gratuite, en ligne ou dans les points physiques provinciaux.</p>
-    <div class="btns" style="margin-top:1.8rem"><a class="btn btn-fill" href="#formulaire">Aller au formulaire</a></div>
+    <div class="btns" style="margin-top:1.8rem"><a class="btn btn-fill" href="#formulaire">Déposer ma candidature</a></div>
   </div>
 </section>
-
+<section class="competition-stats" aria-label="La compétition en chiffres">
+  <div class="competition-stat"><strong>26</strong><span>provinces représentées</span></div>
+  <div class="competition-stat"><strong>30</strong><span>places à l’académie</span></div>
+  <div class="competition-stat"><strong>11</strong><span>modules de préparation</span></div>
+  <div class="competition-stat"><strong>1</strong><span>couronne nationale</span></div>
+</section>
 <section class="bandeau" aria-label="La couronne 2026">
-  <img src="assets/img/gala-finalistes.jpg" alt="Les finalistes de Miss RDC sur scène" width="1586" height="992">
+  <img src="assets/img/hero-miss.jpg" alt="Candidate Miss RDC sur scène" width="1024" height="682">
   <div class="bandeau-body">
     <p class="eyebrow">Une place par province</p>
     <h2 class="t-xl">Vous pouvez être<br><span class="it">l'une d'elles</span></h2>
@@ -254,3 +262,8 @@
 <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
+
+
+

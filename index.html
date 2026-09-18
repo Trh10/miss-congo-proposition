@@ -15,22 +15,25 @@
 <meta name="author" content="Coordination Nationale Miss RDC">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@300;400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
 <header class="nav">
   <div class="nav-rail">
-    <a class="brand brand-empty" href="index.html" aria-label="Miss RDC Accueil"></a>
+    <a class="brand" href="index.html" aria-label="Miss RDC Accueil">
+      <img class="brand-logo brand-logo-wide" src="assets/img/logo-miss-rdc.png" alt="Miss RDC" width="280" height="58">
+    </a>
     <nav aria-label="Navigation principale">
       <ul class="menu">
         <li><a href="index.html" aria-current="page">Accueil</a></li>
-        <li><a href="edition.html">L'édition</a></li>
+        <li><a href="participer.html">Compétition</a></li>
+        <li><a href="souvenir.html">Souvenir</a></li>
+        <li><a href="edition.html">Renaissance</a></li>
+        <li><a href="heritage.html">Héritage</a></li>
         <li><a href="programme.html">Programme</a></li>
-        <li><a href="participer.html">Participer</a></li>
         <li><a href="partenaires.html">Partenaires</a></li>
-        <li><a class="nav-cta" href="participer.html">S'inscrire</a></li>
       </ul>
     </nav>
     <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -39,22 +42,23 @@
 
 <section class="hero hero--editorial">
   <figure class="hero-ed-media">
-    <img src="assets/img/couronne-macro.jpg" alt="Couronne Miss RDC sertie de cristaux, posée sur du velours bordeaux" width="1600" height="1200" fetchpriority="high">
+    <video autoplay muted loop playsinline preload="auto" poster="assets/img/couronne-macro.jpg" aria-label="Présentation animée de Miss RDC">
+      <source src="assets/video/hero-renaissance-loop.mp4" type="video/mp4">
+    </video>
   </figure>
   <div class="hero-ed-veil" aria-hidden="true"></div>
+  <div class="hero-ed-ten" aria-hidden="true">10</div>
   <div class="hero-ed-content">
     <div class="hero-ed-copy hero-in d1">
-      <h1 class="hero-ed-title">Dix ans après,<br>la couronne <em>renaît</em></h1>
+      <p class="hero-ed-overline"><span>Miss RDC</span><span>Édition 2026</span></p>
+      <h1 class="hero-ed-title"><span class="hero-ed-line hero-ed-line--top">Dix ans après,</span><span class="hero-ed-line hero-ed-line--bottom"><span class="hero-ed-crown">la couronne</span> <em>renaît</em></span></h1>
       <p class="hero-ed-lead">Édition de la Renaissance — la beauté qui témoigne, le Congo qui rayonne.</p>
       <div class="hero-ed-actions">
         <a class="btn btn-gold" href="participer.html">Candidater</a>
-        <a class="hero-ed-link" href="programme.html">Voir le programme</a>
       </div>
     </div>
-    <figure class="hero-ed-logo-wrap hero-in d2">
-      <img class="hero-ed-logo" src="assets/img/logo-miss-rdc-hero.png" alt="Logo Miss RDC" width="900" height="500">
-    </figure>
   </div>
+  <div class="hero-ed-scroll" aria-hidden="true"><span></span>Découvrir</div>
 </section>
 
 <section class="crown-solo" aria-label="Édition de la Renaissance">
@@ -63,8 +67,8 @@
     <h2 class="t-l">La couronne renaît</h2>
     <p class="lead">Depuis 2016, la couronne attend. L’édition 2026 reprend ce flambeau — non comme une simple répétition, mais comme une renaissance pensée pour la décennie qui s’ouvre.</p>
   </div>
-  <figure class="crown-solo-photo crown-solo-photo--podium rev">
-    <img src="assets/img/hero-podium.jpg" alt="Une candidate sur le podium de la grande finale, face au public" width="1086" height="1448" loading="lazy">
+  <figure class="crown-solo-photo crown-solo-photo--crown rev">
+    <img src="assets/img/couronne-renaissance.png" alt="Couronne officielle de Miss RDC ornée de pierres aux couleurs nationales" width="1390" height="1331" loading="lazy">
   </figure>
 </section>
 
@@ -112,6 +116,40 @@
   </div>
 </section>
 
+
+<section class="sec spotlight">
+  <div class="spotlight-visual rev" aria-hidden="true">
+    <img src="assets/img/gala-public.jpg" alt="" width="1586" height="992" loading="lazy">
+    <div class="spotlight-overlay"></div>
+  </div>
+  <div class="wrap spotlight-content rev">
+    <p class="hero-kicker">Le spectacle</p>
+    <h2 class="t-xl">La couronne qui<br><span class="it">rassemble</span></h2>
+    <p class="lead mt-lg">26 provinces, 400 terroirs, une seule couronne : célébration de l’unité dans la diversité.</p>
+    <a class="btn btn-fill mt-lg" href="programme.html">Découvrir le programme</a>
+  </div>
+</section>
+
+
+<section class="sec sec-soft sec-rich" id="coordination">
+  <span class="sec-watermark" aria-hidden="true">RDC</span>
+  <div class="wrap">
+    <div class="coord rev">
+      <figure class="coord-photo">
+        <img src="assets/img/veronique-kashala.jpg" alt="Véronique Kashala, coordinatrice nationale du concours Miss RDC" width="800" height="1000" loading="lazy">
+      </figure>
+      <div class="coord-body">
+        <p class="hero-kicker">Coordination nationale</p>
+        <h2 class="t-l">Véronique Kashala Wetunganyi</h2>
+        <p class="role">Coordonnatrice nationale, Miss RDC</p>
+        <p class="lead">Sous l'autorité du Ministère du Tourisme, elle porte la Coordination Nationale — former, révéler et préparer chaque jeune Congolaise à représenter le pays.</p>
+        <blockquote class="coord-quote">Transformer un potentiel brut en excellence reconnue, et faire de cette réussite individuelle un rayonnement collectif pour la RDC tout entière.</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <section class="sec dream-worlds">
   <div class="wrap dream-worlds-head rev">
     <h2 class="t-xl">Beauté, culture<br><span class="it">&amp; tourisme</span></h2>
@@ -145,19 +183,6 @@
   </div>
 </section>
 
-<section class="sec spotlight">
-  <div class="spotlight-visual rev" aria-hidden="true">
-    <img src="assets/img/gala-public.jpg" alt="" width="1586" height="992" loading="lazy">
-    <div class="spotlight-overlay"></div>
-  </div>
-  <div class="wrap spotlight-content rev">
-    <p class="hero-kicker">Le spectacle</p>
-    <h2 class="t-xl">La couronne qui<br><span class="it">rassemble</span></h2>
-    <p class="lead mt-lg">26 provinces, 400 terroirs, une seule couronne : célébration de l’unité dans la diversité.</p>
-    <a class="btn btn-fill mt-lg" href="programme.html">Découvrir le programme</a>
-  </div>
-</section>
-
 <section class="sec sec-dark sec-rich" id="tourisme">
   <span class="sec-watermark light" aria-hidden="true">26</span>
   <div class="wrap">
@@ -185,51 +210,6 @@
       <figure class="dest">
         <img src="assets/img/matadi-fleuve.jpg" alt="Le pont de Matadi enjambant le fleuve Congo dans la brume du matin" width="1586" height="992" loading="lazy">
         <figcaption><span>Matadi</span><b>Le pont sur le fleuve</b></figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec-soft sec-rich" id="coordination">
-  <span class="sec-watermark" aria-hidden="true">RDC</span>
-  <div class="wrap">
-    <div class="coord rev">
-      <figure class="coord-photo">
-        <img src="assets/img/veronique-kashala.jpg" alt="Véronique Kashala, coordinatrice nationale du concours Miss RDC" width="800" height="1000" loading="lazy">
-      </figure>
-      <div class="coord-body">
-        <p class="hero-kicker">Coordination nationale</p>
-        <h2 class="t-l">Véronique Kashala Wetunganyi</h2>
-        <p class="role">Coordonnatrice nationale, Miss RDC</p>
-        <p class="lead">Sous l'autorité du Ministère du Tourisme, elle porte la Coordination Nationale — former, révéler et préparer chaque jeune Congolaise à représenter le pays.</p>
-        <blockquote class="coord-quote">Transformer un potentiel brut en excellence reconnue, et faire de cette réussite individuelle un rayonnement collectif pour la RDC tout entière.</blockquote>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec-dark sec-rich" id="galerie">
-  <span class="sec-watermark light" aria-hidden="true">Miss</span>
-  <div class="wrap">
-    <div class="rev sec-head">
-      <div class="sec-intro">
-        <p class="hero-kicker">La scène</p>
-        <h2 class="t-l">La couronne qui rassemble</h2>
-        <p class="lead">Le gala, la transmission, la finale — le Congo qui rayonne.</p>
-      </div>
-    </div>
-    <div class="gallery rev">
-      <figure>
-        <img src="assets/img/echarpe-detail.jpg" alt="Détail d'une écharpe de satin bordée d'or sur une robe pailletée" width="1448" height="1086" loading="lazy">
-        <figcaption><span>L'écharpe</span>Satin et fil d'or</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/img/bijoux-detail.jpg" alt="Diadème, bracelets et boucles d'oreilles dorés posés sur du velours sombre" width="1448" height="1086" loading="lazy">
-        <figcaption><span>Le diadème</span>Orfèvrerie de la couronne</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/img/fleurs-bouquet.jpg" alt="Bouquet de roses rouges de la cérémonie" width="1448" height="1086" loading="lazy">
-        <figcaption><span>Le bouquet</span>Roses de cérémonie</figcaption>
       </figure>
     </div>
   </div>
@@ -313,3 +293,11 @@
 <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+

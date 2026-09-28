@@ -5,12 +5,12 @@
     ['1970','Marie-Josée Basoko','MB','République démocratique du Congo','Une page de l’histoire nationale.','assets/img/heritage/1970-marie-josee-basoko.png'],
     ['1971','Martine Mualuke','MM','République démocratique du Congo','Une page de l’histoire nationale.','assets/img/heritage/1971-martine-mualuke.png'],
     ['1972','Ombayi Mukuta','OM','République démocratique du Congo','Miss Élégance au concours Miss Univers 1972.','assets/img/heritage/1972-ombayi-mukuta.jpeg'],
-    ['1983','Bongo Lina','BL','République démocratique du Congo','Le retour de la couronne après onze années.'],
+    ['1983','Lina Bongo','BL','République démocratique du Congo','Le retour de la couronne après onze années.'],
     ['1984','Chantal Lokange Lwali','CL','Kinshasa','Candidate à Miss Univers 1984 à Miami, aux États-Unis.','assets/img/heritage/1984-chantal-lokange-lwali.png'],
     ['1985','Kayonga (Benita) Mureka Tete','KM','Nord-Kivu','Demi-finaliste à Miss Monde 1985, Reine de beauté d’Afrique, Miss Photogénique et troisième à Miss Univers 1985.','assets/img/heritage/1985-kayonga-mureka-tete.jpeg'],
     ['1986','Likobe (Aimée) Dobala','LD','Équateur','Demi-finaliste au concours Miss Univers 1986 à Panama.','assets/img/heritage/1986-likobe-dobala.png'],
     ['1987','Mesatewa Tuzolana','MT','Kongo Central','Candidate au concours Miss International 1987 au Japon.','assets/img/heritage/1987-mesatewa-tuzolana.png'],
-    ['1988','Sylvie Nia Bologna','SN','Kinshasa','Représentante de Kinshasa.'],
+    ['1988','Sylvie Nia Malikane Bologna','SN','Kinshasa','Représentante de Kinshasa.'],
     ['1989','Alphonsine (Lumeka) Mulunge','AM','Kinshasa','Représentante de Kinshasa. Décédée à Paris en 2022.'],
     ['1990–1993','La couronne en silence','—','Trêve','Une pause dans l’histoire, avant le retour du concours.'],
     ['1994','Edith Ngalula-Baluisha','EN','République démocratique du Congo','La couronne retrouve la lumière.','assets/img/heritage/1994-edith-ngalula-baluisha.png'],
@@ -31,21 +31,32 @@
   const region = document.querySelector('#legacy-region');
   const note = document.querySelector('#legacy-note');
   const current = document.querySelector('#legacy-current');
+  const total = document.querySelector('#legacy-total');
+  if (total) total.textContent = String(queens.length).padStart(2, '0');
   let active = 0;
   function select(index, focus = false) {
     active = (index + queens.length) % queens.length;
     const queen = queens[active];
     cards.forEach((card, i) => { card.classList.toggle('is-active', i === active); card.setAttribute('aria-pressed', i === active); });
     year.textContent = queen[0]; name.textContent = queen[1]; region.textContent = queen[3]; note.textContent = queen[4]; current.textContent = String(active + 1).padStart(2, '0');
-    portrait.classList.remove('is-changing'); void portrait.offsetWidth; portrait.classList.add('is-changing');
+    if (portrait.dataset.ready) { portrait.classList.remove('is-changing'); void portrait.offsetWidth; portrait.classList.add('is-changing'); }
+    portrait.dataset.ready = '1';
     portrait.innerHTML = queen[5] ? `<img src="${queen[5]}" alt="${queen[1]}">` : `<div class="legacy-placeholder" aria-label="Photo à venir"><span>${queen[2]}</span><small>Photo à venir</small></div>`;
-    cards[active].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    const card = cards[active];
+    track.scrollTo({ left: card.offsetLeft - (track.clientWidth - card.offsetWidth) / 2, behavior: 'smooth' });
     if (focus) cards[active].focus({ preventScroll: true });
   }
   cards.forEach((card, index) => card.addEventListener('click', () => select(index)));
   document.querySelector('.legacy-prev').addEventListener('click', () => select(active - 1, true));
   document.querySelector('.legacy-next').addEventListener('click', () => select(active + 1, true));
   track.addEventListener('keydown', event => { if (event.key === 'ArrowLeft') { event.preventDefault(); select(active - 1, true); } if (event.key === 'ArrowRight') { event.preventDefault(); select(active + 1, true); } });
-  track.addEventListener('wheel', event => { if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) { event.preventDefault(); track.scrollLeft += event.deltaY; } }, { passive: false });
+  track.addEventListener('wheel', event => {
+    if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+    const max = track.scrollWidth - track.clientWidth;
+    const atEdge = (event.deltaY < 0 && track.scrollLeft <= 0) || (event.deltaY > 0 && track.scrollLeft >= max - 1);
+    if (atEdge) return;
+    event.preventDefault();
+    track.scrollLeft += event.deltaY;
+  }, { passive: false });
   select(0);
 })();

@@ -142,11 +142,41 @@
     setMode("upload");
   });
 
+  function envoyerCandidature(form, zone) {
+    var base = (window.MISS_API || "").replace(/\/$/, "");
+    var url = base + form.dataset.api;
+    var data = new FormData(form);
+    var lien = $("[data-video-panel='link']", form);
+    if (lien && !lien.hidden) data.delete("video-file");
+    else data.delete("video");
+    var btn = $("button[type='submit']", form);
+    if (btn) btn.disabled = true;
+    zone.hidden = false;
+    zone.classList.remove("is-error");
+    zone.textContent = "Envoi du dossier…";
+    zone.scrollIntoView({ behavior: "smooth", block: "center" });
+    fetch(url, { method: "POST", body: data })
+      .then(function (r) {
+        return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; });
+      })
+      .then(function (res) {
+        if (!res.ok || !res.j.ok) throw new Error(res.j.error || "Le dossier n'a pas pu être envoyé.");
+        zone.textContent = "Dossier " + res.j.id + " enregistré. Il apparaît avec les candidatures WhatsApp. La Coordination revient vers vous sous 72 heures.";
+        form.reset();
+      })
+      .catch(function (err) {
+        zone.classList.add("is-error");
+        zone.textContent = err && err.message ? err.message : "Le dossier n'a pas pu être envoyé. Réessayez dans un instant.";
+      })
+      .finally(function () { if (btn) btn.disabled = false; });
+  }
+
   $$("form[data-demo]").forEach(function (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var zone = $("[data-msg]", form);
       if (!zone) return;
+      if (form.dataset.api) return envoyerCandidature(form, zone);
       var file = $("#video-file", form);
       zone.hidden = false;
       zone.textContent = form.dataset.demo === "partenaire"

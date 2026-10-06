@@ -119,7 +119,7 @@
       <h2 class="h2" data-split>De la candidature <em>à la couronne</em></h2>
     </div>
     <ol class="rows">
-      <li class="row" data-reveal><h3>Inscriptions</h3><p>Du 10 au 20 septembre 2026, en ligne et dans les points d'inscription provinciaux.</p></li>
+      <li class="row" data-reveal><h3>Inscriptions</h3><p>Du 5 au 17 octobre 2026, en ligne et dans les points d'inscription provinciaux.</p></li>
       <li class="row" data-reveal><h3>Présélection</h3><p>Revue des dossiers et des vidéos de présentation. Liste publiée le 25 septembre.</p></li>
       <li class="row" data-reveal><h3>Castings provinciaux</h3><p>Du 28 septembre au 16 octobre, devant les comités provinciaux, avec le parrainage des gouverneurs.</p></li>
       <li class="row" data-reveal><h3>Liste définitive</h3><p>Les trente candidates retenues sont annoncées le 24 octobre à Kinshasa.</p></li>
@@ -133,10 +133,10 @@
   <div class="wrap split">
     <div class="split-sticky">
       <h2 class="h2" data-split>Déposer <em>ma candidature</em></h2>
-      <p class="body" data-reveal style="margin-top:1.6rem">Comptez dix minutes. Vous recevrez un accusé de réception par e-mail avec le règlement et la charte du concours.</p>
+      <p class="body" data-reveal style="margin-top:1.6rem">Comptez dix minutes. Le dossier rejoint les candidatures reçues sur WhatsApp. La Coordination revient vers vous sous 72 heures.</p>
       <p class="small" data-reveal style="margin-top:1.2rem">Une question&nbsp;? <a href="mailto:info@miss-rdc.cd" style="text-decoration:underline;text-underline-offset:3px">info@miss-rdc.cd</a></p>
     </div>
-    <form class="form" data-demo="candidate" novalidate>
+    <form class="form" data-demo="candidate" data-api="/api/candidature" novalidate>
       <div class="field"><label for="nom">Nom</label><input id="nom" name="nom" required autocomplete="family-name"></div>
       <div class="field"><label for="postnom">Post-nom</label><input id="postnom" name="postnom" required></div>
       <div class="field"><label for="prenom">Prénom</label><input id="prenom" name="prenom" required autocomplete="given-name"></div>
@@ -199,8 +199,8 @@
         <textarea id="motivation" name="motivation" rows="5" maxlength="1200" required></textarea>
         <p class="help">1 200 caractères maximum.</p>
       </div>
-      <div class="field--full check"><input id="ok1" type="checkbox" required><label for="ok1">Je certifie remplir les critères d'éligibilité de l'édition.</label></div>
-      <div class="field--full check"><input id="ok2" type="checkbox" required><label for="ok2">J'autorise la Coordination Nationale Miss RDC à traiter mes données et à utiliser mon image dans le cadre du concours.</label></div>
+      <div class="field--full check"><input id="ok1" name="ok1" type="checkbox" required><label for="ok1">Je certifie remplir les critères d'éligibilité de l'édition.</label></div>
+      <div class="field--full check"><input id="ok2" name="ok2" type="checkbox" required><label for="ok2">J'autorise la Coordination Nationale Miss RDC à traiter mes données et à utiliser mon image dans le cadre du concours.</label></div>
       <div class="field--full"><button class="btn btn--solid-dark" type="submit" data-magnetic data-arrow>Envoyer ma candidature</button></div>
       <div class="msg" data-msg hidden role="status"></div>
     </form>
@@ -291,7 +291,6 @@
     </div>
     <div class="fine">
       <span>© 2026 Coordination Nationale Miss RDC · Ministère du Tourisme</span>
-      <span>Arrêté ministériel N° 011/CAB/MIN/TRSM/2026</span>
       <button class="to-top" type="button" data-top>Haut de page ↑</button>
     </div>
   </div>

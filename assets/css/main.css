@@ -706,6 +706,7 @@ html.is-arriving .curtain { transform: translate3d(0, 0, 0); }
 .form .check label { font-size: .95rem; color: var(--mute); }
 .help { font-size: var(--fs-small); color: var(--mute); }
 .msg { grid-column: 1 / -1; padding: 1.2rem 1.4rem; border-left: 2px solid var(--gold-deep); background: rgba(198, 161, 91, .1); }
+.msg.is-error { border-left-color: #8a3a32; background: rgba(138, 58, 50, .08); }
 
 .video-source { display: inline-flex; padding: .3rem; border: 1px solid var(--line); border-radius: 999px; width: max-content; }
 .video-source-btn { padding: .75rem 1.3rem; border: 0; border-radius: 999px; background: transparent; font: 700 .7rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--mute); transition: background-color .4s, color .4s; }
@@ -1058,26 +1059,22 @@ body { letter-spacing: .005em; }
 @media (max-width: 1000px) { .journey-grid { grid-template-columns: repeat(2, 1fr); row-gap: 3.5rem; } .journey-grid::before { display: none; } }
 @media (max-width: 560px) { .journey-grid { grid-template-columns: 1fr; } }
 
-/* ---------- Couronne Amani ---------- */
+/* ---------- Couronne Madini Amani ---------- */
 .crown { background: var(--night); }
 .crown-bg { position: absolute; inset: 0; }
-.crown-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
-.crown-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, var(--night) 0%, rgba(10, 11, 16, .15) 22%, rgba(10, 11, 16, .1) 60%, var(--night) 100%); }
+.crown-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 78%; }
+.crown-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, var(--night) 0%, rgba(10, 11, 16, .28) 14%, rgba(10, 11, 16, .08) 48%, rgba(10, 11, 16, .45) 100%); }
 .crown-stage { flex-direction: column; gap: clamp(1rem, 3vh, 2.2rem); display: flex; align-items: center; justify-content: center; }
 .crown-img { width: min(46vw, 560px); }
 .crown-glow { top: 50%; left: 50%; transform: translate(-50%, -60%); }
-.crown-name { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: .5rem; margin: 0; text-align: center; }
+.crown-name { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: .5rem; margin: 0; padding-inline: 1rem; text-align: center; max-width: 100%; }
 .crown-name span { font: 500 .78rem/1 var(--sweet); letter-spacing: .42em; text-transform: uppercase; color: rgba(236, 230, 218, .82); }
-.crown-name b {
-  font: 400 clamp(3.2rem, 8vw, 7.5rem)/1 "Cinzel Decorative", var(--cinzel); letter-spacing: .04em;
-  background: linear-gradient(175deg, #fff3d6 0%, #f7cf86 24%, #e9973c 46%, #b8561a 62%, #f2b863 80%, #8a360f 100%);
-  -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 6px 24px rgba(233, 151, 60, .35));
-}
+.crown-name img { width: min(92vw, 720px); height: auto; filter: drop-shadow(0 10px 28px rgba(0, 0, 0, .55)); }
 
 /* ---------- Voix officielles ---------- */
 .voices { overflow: hidden; }
 .voice-lead { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; gap: clamp(2rem, 5vw, 6rem); }
+.voice-lead + .voice-lead { margin-top: clamp(4rem, 8vw, 7rem); padding-top: clamp(3rem, 6vw, 5rem); border-top: 1px solid var(--on-dark-line); }
 .voice-lead-img { position: relative; margin: 0; }
 .voice-lead-img img { width: 100%; height: auto; -webkit-mask-image: linear-gradient(#000 70%, transparent), linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(#000 70%, transparent); }
 .voice-kicker { font: 500 .72rem/1.5 var(--sweet); letter-spacing: .24em; text-transform: uppercase; color: var(--gold); }
@@ -1218,6 +1215,7 @@ body { letter-spacing: .005em; }
   .page-hero .label::before, .legacy-heading .label::before, .memory-intro .label::before { display: none; }
 }
 .page-participer .page-hero-media img { object-position: 50% 18%; }
+.page-programme .page-hero-media img { object-position: 50% 42%; }
 .page-participer .voice-grid .media img { object-position: 70% 40%; }
 .voice-sign .tricolor { flex: none; }
 @media (max-width: 640px) { .voice-sign { align-items: flex-start; } .voice-sign .tricolor { width: 36px; margin-top: .7rem; } }
